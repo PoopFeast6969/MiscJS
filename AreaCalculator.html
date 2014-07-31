@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<body>
+    <input type="number" placeholder="Height" id="height" onkeyup="calc()"> x
+    <input type="number" placeholder="Width" id="width" onkeyup="calc()"> x
+    <input type="number" placeholder="Length" id="length" onkeyup="calc()"> =
+    <input type="text" placeholder="Result" id="result" disabled="yes"></input>
+</body>
+<script>
+    function calc() {
+        var height = document.getElementById("height").value;
+        var width = document.getElementById("width").value;
+        var length = document.getElementById("length").value;
+        var result = height * length * width;
+        
+        document.getElementById("result").value = result;
+    }
+</script>
