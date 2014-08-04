@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<body onload="maths()">
+    <table><tbody id="table"></tbody></table>
+</body> 
+<script>
+    function maths() {
+        var maxnum = 12;
+        var currentnum = 1;
+        var othernum = 1;
+        var dump = "";
+        
+        for(currentnum = 1; currentnum <= maxnum; currentnum++) {
+            dump += "<tr>"
+            for (othernum = 1; othernum <= maxnum; othernum++) {
+                dump += "<td>" + currentnum * othernum + "</td>"
+            };
+            dump += "</tr>"
+        };
+        document.getElementById("table").innerHTML = dump
+    }
+</script>
