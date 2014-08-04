@@ -5,10 +5,16 @@
 </body> 
 <script>
     function check() {
+        var input = document.getElementById("input").value
+        var result = document.getElementById("result").innerHTML
         if(input%2 == 0) {
-            document.getElementById("result").innerHTML = "thats even"
+            document.getElementById("result").innerHTML = "is even"
         }
         else {
-            document.getElementById("result").innerHTML = "thats odd"
+            document.getElementById("result").innerHTML = "is odd"
         }
+        if(document.getElementById("input").value == "") {
+            document.getElementById("result").innerHTML = ""
+        }
+    }
 </script>
