@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<body>
+    <input type="number" placeholder="This number" id="input" onchange="check()" onkeyup="check()">
+    <span id="result"></span>
+</body> 
+<script>
+    function check() {
+        if(input%2 == 0) {
+            document.getElementById("result").innerHTML = "thats even"
+        }
+        else {
+            document.getElementById("result").innerHTML = "thats odd"
+        }
+</script>
