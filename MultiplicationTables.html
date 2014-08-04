@@ -1,21 +1,34 @@
 <!DOCTYPE HTML>
-<body onload="maths()">
+<body>
+    <input type="number" placeholder="Tables up too..." id="input" onkeyup="maths()" onchange="maths()">
     <table><tbody id="table"></tbody></table>
 </body> 
 <script>
-    function maths() {
-        var maxnum = 12;
+    (function maths() {
         var currentnum = 1;
         var othernum = 1;
         var dump = "";
+        var startnum = 0;
+        var finalnum = document.getElementById("input").value;
         
-        for(currentnum = 1; currentnum <= maxnum; currentnum++) {
+        if(startnum <= finalnum) {
+            startnum + 1 = startnum
+        }
+         
+        console.log(startnum);
+        
+        for(currentnum = 1; currentnum <= startnum; currentnum++) {
             dump += "<tr>"
-            for (othernum = 1; othernum <= maxnum; othernum++) {
+            for (othernum = 1; othernum <= startnum; othernum++) {
                 dump += "<td>" + currentnum * othernum + "</td>"
             };
             dump += "</tr>"
         };
         document.getElementById("table").innerHTML = dump;
+        
+        console.log("done maths");
+        
+        setTimeout(maths(),1000);
     }
+    })();
 </script>
