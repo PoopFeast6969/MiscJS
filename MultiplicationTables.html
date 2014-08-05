@@ -1,21 +1,28 @@
 <!DOCTYPE HTML>
-<body>
-    <input type="number" placeholder="Tables up too..." id="input" onkeyup="maths()" onchange="maths()">
-    <table><tbody id="table"></tbody></table>
-</body> 
+<style>
+table {
+    padding:3px;
+    font-family:"Comic Sans", "Comic Sans MS";
+    border-collapse:collapse;
+}
+td {
+    border:1px solid #ccc;
+}
+</style>
 <script>
-    (function maths() {
-        var currentnum = 1;
-        var othernum = 1;
+    var startnum = 0;
+    var currentnum = 1;
+    var othernum = 1;
+    function maths() {
         var dump = "";
-        var startnum = 0;
-        var finalnum = document.getElementById("input").value;
+        var finalnum = parseInt(document.getElementById("input").value);
         
-        if(startnum <= finalnum) {
-            startnum + 1 = startnum
+        if(startnum < finalnum) {
+            startnum++;
         }
-         
-        console.log(startnum);
+        else if(startnum > finalnum) {
+            startnum--;
+        }
         
         for(currentnum = 1; currentnum <= startnum; currentnum++) {
             dump += "<tr>"
@@ -26,9 +33,10 @@
         };
         document.getElementById("table").innerHTML = dump;
         
-        console.log("done maths");
-        
-        setTimeout(maths(),1000);
+        setTimeout(function(){maths();},500);
     }
-    })();
 </script>
+<body>
+    <input type="number" placeholder="Tables up too..." id="input" onkeyup="maths()" onchange="maths()">
+    <table><tbody id="table"></tbody></table>
+</body> 
