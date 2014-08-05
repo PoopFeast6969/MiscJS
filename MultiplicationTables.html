@@ -5,7 +5,7 @@
     var othernum = 1;
     function maths() {
         var dump = "";
-        var finalnum = parseInt(document.getElementById("input").value);
+        var finalnum = document.getElementById("input").value;
         
         if(startnum < finalnum) {
             startnum++;
@@ -23,10 +23,11 @@
         };
         document.getElementById("table").innerHTML = dump;
         
-        setTimeout(function(){maths();},500);
+        
+        setTimeout(function(){maths();},200);
     }
 </script>
-<body>
-    <input type="number" placeholder="Tables up too..." id="input" onkeyup="maths()" onchange="maths()">
+<body onload="maths();">
+    <input type="number" placeholder="Tables up too..." id="input">
     <table><tbody id="table"></tbody></table>
 </body> 
