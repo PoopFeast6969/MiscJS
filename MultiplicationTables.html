@@ -6,14 +6,12 @@
     function maths() {
         var dump = "";
         var finalnum = document.getElementById("input").value;
-        
         if(startnum < finalnum) {
             startnum++;
         }
         else if(startnum > finalnum) {
             startnum--;
         }
-        
         for(currentnum = 1; currentnum <= startnum; currentnum++) {
             dump += "<tr>"
             for (othernum = 1; othernum <= startnum; othernum++) {
@@ -23,11 +21,12 @@
         };
         document.getElementById("table").innerHTML = dump;
         
-        
-        setTimeout(function(){maths();},200);
+        if(startnum != finalnum) {
+            setTimeout(function(){maths();},200);
+        }
     }
 </script>
 <body onload="maths();">
-    <input type="number" placeholder="Tables up too..." id="input">
+    <input type="number" placeholder="Tables up too..." id="input" onkeyup="maths()" onchange="maths()">
     <table><tbody id="table"></tbody></table>
 </body> 
