@@ -12,21 +12,30 @@
         else if(startnum > finalnum) {
             startnum--;
         }
+        if(startnum != finalnum) {
+            setTimeout(function(){maths();},50);
+        }
         for(currentnum = 1; currentnum <= startnum; currentnum++) {
             dump += "<tr>"
             for (othernum = 1; othernum <= startnum; othernum++) {
                 dump += "<td>" + currentnum * othernum + "</td>"
-            };
+            }
             dump += "</tr>"
-        };
-        document.getElementById("table").innerHTML = dump;
-        
-        if(startnum != finalnum) {
-            setTimeout(function(){maths();},200);
         }
+        document.getElementById("table").innerHTML = dump;
     }
 </script>
 <body onload="maths();">
     <input type="number" placeholder="Tables up too..." id="input" onkeyup="maths()" onchange="maths()">
     <table><tbody id="table"></tbody></table>
 </body> 
+<Style>
+html, body, table {
+    margin: 0 auto;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+}
+</style>
