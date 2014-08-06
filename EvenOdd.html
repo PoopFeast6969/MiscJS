@@ -1,20 +1,23 @@
 <!DOCTYPE HTML>
-<body>
-    <input type="number" placeholder="This number" id="input" onchange="check()" onkeyup="check()">
-    <span id="result"></span>
-</body> 
 <script>
     function check() {
-        var input = document.getElementById("input").value
-        var result = document.getElementById("result").innerHTML
+        var input = document.getElementById("input").value;
+        var output = "";
+        
         if(input%2 == 0) {
-            document.getElementById("result").innerHTML = "is even"
+            output = "is even"
         }
         else {
-            document.getElementById("result").innerHTML = "is odd"
+            output = "is odd"
         }
-        if(document.getElementById("input").value == "") {
-            document.getElementById("result").innerHTML = ""
+        if(input == "") {
+            output = ""
         }
+        document.getElementById("output").innerHTML = output;
     }
 </script>
+
+<body>
+    <input type="number" placeholder="This number" id="input" onchange="check()" onkeyup="check()">
+    <span id="output"></span>
+</body>

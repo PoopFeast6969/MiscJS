@@ -1,25 +1,24 @@
 <!DOCTYPE HTML>
 <script>
-  function check() {
-      var output = "";
-      var input = document.getElementbyId("input").value;
-      var q = (int) Math.sqrt(input);
-      
-      if (n < 2) {
-        output = "is not a prime";
-      }
-     
-      for (var i = 2; i <= q; i++) {
-        if (n % i == 0) {
-          output = "is not a prime";
+    function maths() {          
+        var input = document.getElementbyId("input").value;
+        var output = "";
+        var q = Math.sqrt(input);
+          
+        if (input < 2) {
+            output = "is not a prime";
         }
-      }
-      
-      output = "is totes a prime";
-      document.getElementbyId("output").innerHTML = output;
-  }
+        for (var i = 2; i <= q; i++) {
+            if (input % i == 0) {
+                output = "is not a prime";
+            }
+        }
+        output = "is totes a prime";
+        document.getElementbyId("output").innerHTML = output;
+    }
 </script>
+
 <body>
-    <input type="number" placeholder="This number" id="input" onkeyup="check()" onchange="check()">
+    <input type="number" placeholder="This number" id="input" onkeyup="maths()" onchange="maths()">
     <span id="output"></span>
-</body> 
+</body>
