@@ -1,8 +1,8 @@
 <!DOCTYPE HTML>
 <script>
     function maths() {          
-        var input = document.getElementbyId("input").value;
-        var output = "";
+        var input = document.getElementById("input").value;
+        var output = "is totes a prime";
         var q = Math.sqrt(input);
           
         if (input < 2) {
@@ -13,8 +13,10 @@
                 output = "is not a prime";
             }
         }
-        output = "is totes a prime";
-        document.getElementbyId("output").innerHTML = output;
+        if(input == "") {
+            output = ""
+        }
+        document.getElementById("output").innerHTML = output;
     }
 </script>
 
