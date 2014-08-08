@@ -1,13 +1,17 @@
 <!DOCTYPE HTML>
 
 <script>
-    var input = "";
-    var output = "";
-    
-    
+var input = "";
+
     function press(key) {
+        var output = "";
         input += key;
         document.getElementById("display").innerHTML = input;
+    }
+    function clear() {
+        input = "";
+        output = "";
+        document.getElementById("display").innerHTML = "";
     }
     function calc() {
         output = eval(input);
@@ -23,25 +27,25 @@
             <td><button onclick="press(7)" class="numkey">7</button></td>
             <td><button onclick="press(8)" class="numkey">8</button></td>
             <td><button onclick="press(9)" class="numkey">9</button></td>
-            <td><button onclick="press(\)" class="oprkey">\</button></td>
+            <td><button onclick="press('/')" class="oprkey">/</button></td>
         </tr>
         <tr>
             <td><button onclick="press(4)" class="numkey">4</button></td>
             <td><button onclick="press(5)" class="numkey">5</button></td>
             <td><button onclick="press(6)" class="numkey">6</button></td>
-            <td><button onclick="press(*)" class="oprkey">*</button></td>
+            <td><button onclick="press('*')" class="oprkey">*</button></td>
         </tr>
         <tr>
             <td><button onclick="press(1)" class="numkey">1</button></td>
             <td><button onclick="press(2)" class="numkey">2</button></td>
             <td><button onclick="press(3)" class="numkey">3</button></td>
-            <td><button onclick="press(-)" class="oprkey">-</button></td>
+            <td><button onclick="press('-')" class="oprkey">-</button></td>
         </tr>
         <tr>
             <td><button onclick="press(0)" class="numkey">0</button></td>
-            <td><button onclick="press(.)" class="numkey">.</button></td>
-            <td><button onclick="calc()" class="oprkey">=</button></td>
-            <td><button onclick="press(+)" class="oprkey">+</button></td>
+            <td><button onclick="press('.')" class="numkey">.</button></td>
+            <td><button onclick="calc()" ondblclick="clear()" class="oprkey">=</button></td>
+            <td><button onclick="press('+')" class="oprkey">+</button></td>
         </tr>
     </table>
 </div>
