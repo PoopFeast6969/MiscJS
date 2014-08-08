@@ -15,26 +15,26 @@
 </script>
 
 <div id="calculator">
-    <span id="display"></span>
+    <div id="display"></div><br>
     <table id="keypad">
         <tr>
             <button onclick="press(7)" class="numkey">7</button>
             <button onclick="press(8)" class="numkey">8</button>
             <button onclick="press(9)" class="numkey">9</button>
             <button onclick="press(\)" class="oprkey">\</button>
-        </tr>
+        </tr><br>
         <tr>
             <button onclick="press(4)" class="numkey">4</button>
             <button onclick="press(5)" class="numkey">5</button>
             <button onclick="press(6)" class="numkey">6</button>
             <button onclick="press(*)" class="oprkey">*</button>
-        </tr>
+        </tr><br>
         <tr>
             <button onclick="press(1)" class="numkey">1</button>
             <button onclick="press(2)" class="numkey">2</button>
             <button onclick="press(3)" class="numkey">3</button>
             <button onclick="press(-)" class="oprkey">-</button>
-        </tr>
+        </tr><br>
         <tr>
             <button onclick="press(0)" class="numkey">0</button>
             <button onclick="press(.)" class="numkey">.</button>
@@ -45,22 +45,54 @@
 </div>
 
 <style>
-    html, body {
-        overflow: hidden;
-        background: grey;
-        width: 100%;
-        height: 100%;
+    html {
+                display: table;
+                position: absolute;
+                margin: auto;
+                height: 100%;
+                width: 100%;             
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+    }
+    body {
+                display: table-cell;
+                vertical-align: middle;
+                margin: auto;
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
     }
     #calculator {
-        background: black;
+                margin: auto;
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
     }
     #display {
-        border-radius: 5px;   
+        border-radius: 5px;
+        background: purple;
+        width: 100px;
     }
     #keypad {
-        background: grey;      
+        background: blue;
+        height: 100px;
+        width: 100px;
     }
     .numkey {
         border-radius: 2px;
+        display: table-cell;
+        background: #999;
+    }
+    .oprkey {
+        border-radius: 2px;   
+        display: table-cell;
+        background: #777;
     }
 </style>
