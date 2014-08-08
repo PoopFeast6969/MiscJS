@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+
+<script>
+    var input = "";
+    var output = "";
+    
+    function press(key) {
+        input += key;
+        document.getElementById("display").innerHTML = input;
+    }
+    function calc() {
+        output = eval(input);
+        document.getElementById("display").innerHTML = output;
+    }
+</script>
+
+<div id="calculator">
+    <span id="display"></span>
+    <table id="keypad">
+        <tr>
+            <button onclick="press(7)" class="numkey">7</button>
+            <button onclick="press(8)" class="numkey">8</button>
+            <button onclick="press(9)" class="numkey">9</button>
+            <button onclick="press(\)" class="oprkey">\</button>
+        </tr>
+        <tr>
+            <button onclick="press(4)" class="numkey">4</button>
+            <button onclick="press(5)" class="numkey">5</button>
+            <button onclick="press(6)" class="numkey">6</button>
+            <button onclick="press(*)" class="oprkey">*</button>
+        </tr>
+        <tr>
+            <button onclick="press(1)" class="numkey">1</button>
+            <button onclick="press(2)" class="numkey">2</button>
+            <button onclick="press(3)" class="numkey">3</button>
+            <button onclick="press(-)" class="oprkey">-</button>
+        </tr>
+        <tr>
+            <button onclick="press(0)" class="numkey">0</button>
+            <button onclick="press(.)" class="numkey">.</button>
+            <button onclick="calc()" class="oprkey">=</button>
+            <button onclick="press(+)" class="oprkey">+</button>
+        </tr>
+    </table>
+</div>
+
+<style>
+    html, body {
+        overflow: hidden;
+        background: grey;
+        width: 100%;
+        height: 100%;
+    }
+    #calculator {
+        background: black;
+    }
+    #display {
+        border-radius: 5px;   
+    }
+    #keypad {
+        background: grey;      
+    }
+    .numkey {
+        border-radius: 2px;
+    }
+</style>
