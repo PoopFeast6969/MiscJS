@@ -6,17 +6,18 @@
     </html>
 <script>
 var input = "";
-
-    function press(key) {
+    
+    function press(key,keytype,maths,ammend) {
         var output = "";
         input += key;
+        if(keytype == "numkey") {
+            input += ammend;
+            if(document.getElementById("display").innerHTML == output)
+                input = "";
+            }
+        }
         document.getElementById("display").innerHTML = input;
-    }
-    function clear() {
-        input = "";
-        output = "";
-        document.getElementById("display").innerHTML = "";
-    }
+        }
     function calc() {
         output = eval(input);
         document.getElementById("display").innerHTML = output;
@@ -24,32 +25,37 @@ var input = "";
 </script>
 
 <div id="calculator">
-    <div id="display" onclick="clear()"></div>
+    <div id="display"></div>
     <div id="nameplate">By Jack Williams</div>
     <table id="keypad">
         <tr>
-            <td><button onclick="press(7)" class="numkey">7</button></td>
-            <td><button onclick="press(8)" class="numkey">8</button></td>
-            <td><button onclick="press(9)" class="numkey">9</button></td>
-            <td><button onclick="press('/')" class="oprkey">/</button></td>
+            <td><button onclick="press(7,'numkey')" class="numkey">7</button></td>
+            <td><button onclick="press(8,'numkey')" class="numkey">8</button></td>
+            <td><button onclick="press(9,'numkey')" class="numkey">9</button></td>
+            <td><button onclick="press('/','oprkey')" class="oprkey">/</button></td>
+            <td><button onclick="press(&radic,'oprkey',maths.sqrt(" class="oprkey">&radic;</button></td>
         </tr>
         <tr>
-            <td><button onclick="press(4)" class="numkey">4</button></td>
-            <td><button onclick="press(5)" class="numkey">5</button></td>
-            <td><button onclick="press(6)" class="numkey">6</button></td>
-            <td><button onclick="press('*')" class="oprkey">*</button></td>
+            <td><button onclick="press(4,'numkey')" class="numkey">4</button></td>
+            <td><button onclick="press(5,'numkey')" class="numkey">5</button></td>
+            <td><button onclick="press(6,'numkey')" class="numkey">6</button></td>
+            <td><button onclick="press('*','oprkey')" class="oprkey">&times;</button></td>
+            <td><button onclick="press('math.mod','oprkey',)" class="oprkey">%</button></td>
+            
         </tr>
         <tr>
-            <td><button onclick="press(1)" class="numkey">1</button></td>
-            <td><button onclick="press(2)" class="numkey">2</button></td>
-            <td><button onclick="press(3)" class="numkey">3</button></td>
-            <td><button onclick="press('-')" class="oprkey">-</button></td>
+            <td><button onclick="press(1,'numkey')" class="numkey">1</button></td>
+            <td><button onclick="press(2,'numkey')" class="numkey">2</button></td>
+            <td><button onclick="press(3,'numkey')" class="numkey">3</button></td>
+            <td><button onclick="press('-','oprkey')" class="oprkey">-</button></td>
+            <td><button onclick="press('math.pow(','oprkey')" class="oprkey">x&#178;</button></td>
         </tr>
         <tr>
-            <td><button onclick="press(0)" class="numkey">0</button></td>
-            <td><button onclick="press('.')" class="numkey">.</button></td>
+            <td><button onclick="press(0,'numkey')" class="numkey">0</button></td>
+            <td><button onclick="press('.','oprkey')" class="numkey">.</button></td>
             <td><button onclick="calc()" class="oprkey">=</button></td>
-            <td><button onclick="press('+')" class="oprkey">+</button></td>
+            <td><button onclick="press('+','oprkey')" class="oprkey">+</button></td>
+            <td><button onclick="press('math.(number, 3)','oprkey')" class="oprkey">x&#179;</button></td>
         </tr>
     </table>
 </div>
@@ -90,7 +96,7 @@ var input = "";
         height: 40%;
         width: 20%;
         background: orange;
-        min-width: 10em;
+        min-width: 13em;
         min-height: 22em;
         padding: 5px;
         border-radius: 10px;
@@ -104,7 +110,6 @@ var input = "";
         background: purple;
         height: 15%;
         font-size: 2.5em;
-        overflow: scroll;
         cursor: default;
     }
     #keypad {
@@ -116,27 +121,24 @@ var input = "";
         width: 100%;
     }
     #nameplate {
-        height: 7%;
-        background: yellow;
-        border-radius: 5px;
+        height: 10%;
         text-align: right;
         font-style: italic;
         font-size: 50%;
-        padding: 5px;
     }
     .numkey {
-        border-radius: 2px;
+        border-radius: 5px;
         background: #6565bc;
-        width: 80%;
-        height: 80%;
+        width: 90%;
+        height: 90%;
         font-family: inherit;
         font-size: 1.5em;
     }
     .oprkey {
-        border-radius: 2px;   
+        border-radius: 5px;   
         background: #a4a4ea;
-        width: 80%;
-        height: 80%;
+        width: 90%;
+        height: 90%;
         font-family: inherit;
         font-size: 1.5em;
     }
