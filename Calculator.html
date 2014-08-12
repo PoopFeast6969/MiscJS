@@ -6,20 +6,20 @@
 var input = "";
 var output = "";
     
-    function press(key,keytype) {
+    function press(key,keytype,specail) {
         if(keytype == "numkey" && output != "") {
             input = "";
         }
         input += key;
-        document.getElementById("display").innerHTML = input;
+         displayadd(input);
         output = "";
+        if(specail != null) {
+            
+        }
     }
     function calc() {
         output = eval(input);
-        document.getElementById("display").innerHTML = output;
-    }
-    function sqrt() {
-        
+        displayadd(output);
     }
     function mod() {
         
@@ -29,6 +29,9 @@ var output = "";
     }
     function cube() {
         
+    }
+    function displayadd(words) {
+        document.getElementById("display").innerHTML = words;
     }
 </script>
 
@@ -119,7 +122,7 @@ var output = "";
         height: 15%;
         font-size: 2.5em;
         cursor: default;
-        color: 
+        overflow: hidden;
     }
     #keypad {
         background: blue;
