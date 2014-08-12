@@ -1,26 +1,34 @@
 <!DOCTYPE HTML>
-<html>
-    <head>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-        </head>
-    </html>
+
 <script>
 var input = "";
+var output = "";
     
-    function press(key,keytype,maths,ammend) {
-        var output = "";
+    function press(key,keytype) {
+        if(keytype == "numkey" && output != "") {
+            input = "";
+        }
         input += key;
-        if(keytype == "numkey") {
-            input += ammend;
-            if(document.getElementById("display").innerHTML == output)
-                input = "";
-            }
-        }
         document.getElementById("display").innerHTML = input;
-        }
+        output = "";
+    }
     function calc() {
         output = eval(input);
         document.getElementById("display").innerHTML = output;
+    }
+    function sqrt() {
+        
+    }
+    function mod() {
+        
+    }
+    function sqrd() {
+        
+    }
+    function cube() {
+        
     }
 </script>
 
@@ -33,14 +41,14 @@ var input = "";
             <td><button onclick="press(8,'numkey')" class="numkey">8</button></td>
             <td><button onclick="press(9,'numkey')" class="numkey">9</button></td>
             <td><button onclick="press('/','oprkey')" class="oprkey">/</button></td>
-            <td><button onclick="press(&radic,'oprkey',maths.sqrt(" class="oprkey">&radic;</button></td>
+            <td><button onclick="sqrt()" class="oprkey">&radic;</button></td>
         </tr>
         <tr>
             <td><button onclick="press(4,'numkey')" class="numkey">4</button></td>
             <td><button onclick="press(5,'numkey')" class="numkey">5</button></td>
             <td><button onclick="press(6,'numkey')" class="numkey">6</button></td>
             <td><button onclick="press('*','oprkey')" class="oprkey">&times;</button></td>
-            <td><button onclick="press('math.mod','oprkey',)" class="oprkey">%</button></td>
+            <td><button onclick="mod()" class="oprkey">%</button></td>
             
         </tr>
         <tr>
@@ -48,14 +56,14 @@ var input = "";
             <td><button onclick="press(2,'numkey')" class="numkey">2</button></td>
             <td><button onclick="press(3,'numkey')" class="numkey">3</button></td>
             <td><button onclick="press('-','oprkey')" class="oprkey">-</button></td>
-            <td><button onclick="press('math.pow(','oprkey')" class="oprkey">x&#178;</button></td>
+            <td><button onclick="sqrd()" class="oprkey">x&#178;</button></td>
         </tr>
         <tr>
             <td><button onclick="press(0,'numkey')" class="numkey">0</button></td>
             <td><button onclick="press('.','oprkey')" class="numkey">.</button></td>
             <td><button onclick="calc()" class="oprkey">=</button></td>
             <td><button onclick="press('+','oprkey')" class="oprkey">+</button></td>
-            <td><button onclick="press('math.(number, 3)','oprkey')" class="oprkey">x&#179;</button></td>
+            <td><button onclick="cube()" class="oprkey">x&#179;</button></td>
         </tr>
     </table>
 </div>
@@ -111,6 +119,7 @@ var input = "";
         height: 15%;
         font-size: 2.5em;
         cursor: default;
+        color: 
     }
     #keypad {
         background: blue;
@@ -126,7 +135,7 @@ var input = "";
         font-style: italic;
         font-size: 50%;
     }
-    .numkey {
+    .numkey, .oprkey {
         border-radius: 5px;
         background: #6565bc;
         width: 90%;
@@ -134,13 +143,8 @@ var input = "";
         font-family: inherit;
         font-size: 1.5em;
     }
-    .oprkey {
-        border-radius: 5px;   
+    .oprkey {  
         background: #a4a4ea;
-        width: 90%;
-        height: 90%;
-        font-family: inherit;
-        font-size: 1.5em;
     }
     @media only screen and (max-width: 480px), only screen and (max-device-width: 480px) {
         #calculator {
