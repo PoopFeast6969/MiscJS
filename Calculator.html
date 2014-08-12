@@ -3,32 +3,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 
 <script>
+var proc = "";
 var input = "";
 var output = "";
     
-    function press(key,keytype,specail) {
-        if(keytype == "numkey" && output != "") {
+    function press(dispkey,prockey) {
+        if(prockey == null && output != "") {
             input = "";
         }
-        input += key;
-         displayadd(input);
-        output = "";
-        if(specail != null) {
-            
+        if(prockey == null) {
+            input += dispkey;
+            proc += dispkey;
+        } else {
+            proc = prockey.replace("input", proc);
+            input = dispkey.replace("input", input);
         }
+        displayadd(input);
+        output = "";
     }
     function calc() {
-        output = eval(input);
+        console.log(proc);
+        output = eval(proc);
         displayadd(output);
-    }
-    function mod() {
-        
-    }
-    function sqrd() {
-        
-    }
-    function cube() {
-        
     }
     function displayadd(words) {
         document.getElementById("display").innerHTML = words;
@@ -40,33 +36,32 @@ var output = "";
     <div id="nameplate">By Jack Williams</div>
     <table id="keypad">
         <tr>
-            <td><button onclick="press(7,'numkey')" class="numkey">7</button></td>
-            <td><button onclick="press(8,'numkey')" class="numkey">8</button></td>
-            <td><button onclick="press(9,'numkey')" class="numkey">9</button></td>
-            <td><button onclick="press('/','oprkey')" class="oprkey">/</button></td>
-            <td><button onclick="sqrt()" class="oprkey">&radic;</button></td>
+            <td><button onclick="press(7)" class="numkey">7</button></td>
+            <td><button onclick="press(8)" class="numkey">8</button></td>
+            <td><button onclick="press(9)" class="numkey">9</button></td>
+            <td><button onclick="press('input&divide','input/')" class="oprkey">&divide;</button></td>
+            <td><button onclick="press('&radic;input)','Math.sqrt(input)')" class="oprkey">&radic;</button></td>
         </tr>
         <tr>
-            <td><button onclick="press(4,'numkey')" class="numkey">4</button></td>
-            <td><button onclick="press(5,'numkey')" class="numkey">5</button></td>
-            <td><button onclick="press(6,'numkey')" class="numkey">6</button></td>
-            <td><button onclick="press('*','oprkey')" class="oprkey">&times;</button></td>
-            <td><button onclick="mod()" class="oprkey">%</button></td>
-            
+            <td><button onclick="press(4)" class="numkey">4</button></td>
+            <td><button onclick="press(5)" class="numkey">5</button></td>
+            <td><button onclick="press(6)" class="numkey">6</button></td>
+            <td><button onclick="press('input&times;','input*')" class="oprkey">&times;</button></td>
+            <td><button onclick="press('input%','input%')" class="oprkey">%</button></td>
         </tr>
         <tr>
-            <td><button onclick="press(1,'numkey')" class="numkey">1</button></td>
-            <td><button onclick="press(2,'numkey')" class="numkey">2</button></td>
-            <td><button onclick="press(3,'numkey')" class="numkey">3</button></td>
-            <td><button onclick="press('-','oprkey')" class="oprkey">-</button></td>
-            <td><button onclick="sqrd()" class="oprkey">x&#178;</button></td>
+            <td><button onclick="press(1)" class="numkey">1</button></td>
+            <td><button onclick="press(2)" class="numkey">2</button></td>
+            <td><button onclick="press(3)" class="numkey">3</button></td>
+            <td><button onclick="press('input&minus;','input-')" class="oprkey">&minus;</button></td>
+            <td><button onclick="press('(input)&#178;','Math.pow(input,2)')" class="oprkey"><i>x</i>&#178;</button></td>
         </tr>
         <tr>
-            <td><button onclick="press(0,'numkey')" class="numkey">0</button></td>
-            <td><button onclick="press('.','oprkey')" class="numkey">.</button></td>
+            <td><button onclick="press(0)" class="numkey">0</button></td>
+            <td><button onclick="press('.')" class="numkey">.</button></td>
             <td><button onclick="calc()" class="oprkey">=</button></td>
-            <td><button onclick="press('+','oprkey')" class="oprkey">+</button></td>
-            <td><button onclick="cube()" class="oprkey">x&#179;</button></td>
+            <td><button onclick="press('input+','input+')" class="oprkey">+</button></td>
+            <td><button onclick="press('(input)&#179;','Math.pow(input,3)')" class="oprkey"><i>x</i>&#179;</button></td>
         </tr>
     </table>
 </div>
@@ -112,9 +107,10 @@ var output = "";
         padding: 5px;
         border-radius: 10px;
         -webkit-animation: slidein 2s ease-out forwards;
-        -webkit-transition: width 1s ease-in-out, height 1s ease-in-out;
+        -webkit-transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
         font-family: "Courier New", Courier, monospace;
         cursor: default;
+        box-shadow: 0px 0px 25px #000;
     }
     #display {
         border-radius: 5px;
@@ -138,15 +134,19 @@ var output = "";
         font-style: italic;
         font-size: 50%;
     }
-    .numkey, .oprkey {
+    .numkey,.oprkey {
         border-radius: 5px;
         background: #6565bc;
         width: 90%;
         height: 90%;
         font-family: inherit;
         font-size: 1.5em;
+        border-color: transparent;
     }
-    .oprkey {  
+    .numkey:hover,.oprkey:hover {
+        background: #e02e2e; 
+    }
+    .oprkey,.mathkey{  
         background: #a4a4ea;
     }
     @media only screen and (max-width: 480px), only screen and (max-device-width: 480px) {
