@@ -23,7 +23,6 @@ var output = "";
         output = "";
     }
     function calc() {
-        console.log(proc);
         output = eval(proc);
         displayadd(output);
     }
@@ -48,7 +47,7 @@ var output = "";
             <td><button onclick="press(5)" class="numkey">5</button></td>
             <td><button onclick="press(6)" class="numkey">6</button></td>
             <td><button onclick="press('input&times;','input*')" class="oprkey">&times;</button></td>
-            <td><button onclick="press('input%','input%')" class="oprkey">%</button></td>
+            <td><button onclick="press('%input','%input')" class="oprkey">%</button></td>
         </tr>
         <tr>
             <td><button onclick="press(1)" class="numkey">1</button></td>
